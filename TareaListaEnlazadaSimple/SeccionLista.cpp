@@ -23,30 +23,33 @@ void SeccionLista::agregarAlumno(char* nombre1, float nota1) {
 		primero = nuevo;
 	}
 	else {
-		
+
 		AlumnoNodo* actual = primero;
+		bool flag = true;
 
 		while (actual->getSiguiente() != nullptr) {
-			//comparo si voy aqui
-
-
-			if (strcmp(nombre1, actual->getNombre()) > 0) {
-				//si voy aqui ingresso nodo
+			if ((strcmp(nombre1, actual->getNombre()) > 0) && (strcmp(actual->getSiguiente()->getNombre(), nombre1) > 0)) {
 				nuevo->setSiguiente(actual->getSiguiente());
 				actual->setSiguiente(nuevo);
+				flag = false;
 			}
 			else {
-				//si el siguiente es nullptr, voy aqui
-			actual = actual->getSiguiente();
-
+				actual = actual->getSiguiente();
 			}
-			//si no voy aqui
-				//me voy al siguiente
-
-
 		}
+		if (flag) {
 
-
+			if (actual->getNombre() == primero->getNombre()) {
+				if (strcmp( actual->getNombre(), nombre1) > 0) {
+					nuevo->setSiguiente(actual);
+					primero = nuevo;
+				}
+				else {
+					actual->setSiguiente(nuevo);
+				}
+			}else
+			actual->setSiguiente(nuevo);
+		}
 		
 	}
 }
@@ -58,7 +61,7 @@ void SeccionLista::listarSeccion() {
 
 	while (actual != nullptr) {
 
-		cout << "Nombre: " << actual->getNombre() << "\nNota: " << actual->getNota();
+		cout << "Nombre: " << actual->getNombre() << "\nNota: " << actual->getNota() <<"\n";
 		actual = actual->getSiguiente();
 	}
 
