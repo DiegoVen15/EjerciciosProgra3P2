@@ -21,6 +21,8 @@ public:
 	void imprimirLista();
 	void imprimirListaRev();
 	void eliminarElemento(int);
+	void insertarElemento(int, int);	
+	int tamanoLista();
 
 };
 #endif // !LISTA_DOBLE_CIRCULAR_H

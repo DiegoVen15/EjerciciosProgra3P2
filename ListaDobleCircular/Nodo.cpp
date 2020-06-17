@@ -1,6 +1,6 @@
 #include "Nodo.h"
 
-Nodo::Nodo() {
+Nodo::Nodo() : valor(-1), anterior(nullptr), siguiente(nullptr) {
 
 }
 

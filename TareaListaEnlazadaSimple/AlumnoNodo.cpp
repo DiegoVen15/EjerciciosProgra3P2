@@ -22,7 +22,7 @@ void AlumnoNodo::setNota(float nota1) {
 
 void AlumnoNodo::setSiguiente(AlumnoNodo* siguiente1) {
 
-	this->siguiente = siguiente1;
+	this->siguiente = siguiente1 ;
 }
 
 char* AlumnoNodo::getNombre() {
