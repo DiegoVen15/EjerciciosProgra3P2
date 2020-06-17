@@ -118,6 +118,20 @@ void empresaLista::actualizarSalarios(float salario1) {
 	}
 }
 
+void empresaLista::imprimirEmpleados() {
+
+	if (estaVacia())
+		return;
+
+	empleadoNodo* actual = primero;
+
+	while (actual != nullptr) {
+
+		cout << "Empleado { codigo: " << actual->getCodigo() << ", nombre: " << actual->getNombre() << ", Salario: " << actual->getSalario() << " }\n";
+		actual = actual->getSiguiente();
+	}
+}
+
 
 
 
