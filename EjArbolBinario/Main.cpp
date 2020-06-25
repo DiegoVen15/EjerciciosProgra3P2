@@ -19,6 +19,8 @@ int main()
 	cout << "Peso del arbol: " << arbol.obtenerPeso();
 	cout << "Altura maxima: " << arbol.obtenerAlturaMaxima();
 
+	arbol.guardarElementos();
+	arbol.cargarElementos();
 
 
 	_getch();
