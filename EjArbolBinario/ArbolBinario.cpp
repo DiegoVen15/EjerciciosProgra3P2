@@ -109,14 +109,96 @@ void ArbolBinario::guardarElementos(){
 	ofstream elementosOut;
 	elementosOut.open(elementos, ios::out | ios::end | ios::binary);
 
-	ArbolBinario nuevo;
 	if (!elementosOut) {
 
 		cout << "Error al intentar abrir archivo\n";
 		return;
 	}
 
-	elementosOut.write(reinterpret_cast<const char*>(&nuevo), sizeof(ArbolBinario));
+	guardarTotal(raiz, &elementosOut);
 
 	elementosOut.close();
+}
+
+void ArbolBinario::guardarTotal(NodoArbol* x, ofstream* elementosOut)
+{
+	NodoArbol* dos;
+	dos->setNombre("Nulo");
+	bin agregar;
+	if (x->getHijoDerecho() == nullptr)
+		agregar.hijoDerecho = dos;
+	else
+		agregar.hijoDerecho = x->getHijoDerecho();
+	
+
+	if(x->getHijoIzquierdo() == nullptr)
+		agregar.hijoIzquierdo = dos;
+	else
+		agregar.hijoIzquierdo = x->getHijoIzquierdo();
+
+
+	agregar.nombre = x->getNombre();
+	(*elementosOut).write(reinterpret_cast<const char*>(&agregar), sizeof(bin));
+
+	if (x->getHijoDerecho() != nullptr) {
+
+		guardarTotal(x->getHijoDerecho(), elementosOut);
+	}
+	if (x->getHijoIzquierdo() != nullptr) {
+
+		guardarTotal(x->getHijoIzquierdo(), elementosOut);
+	}	
+}
+
+void ArbolBinario::cargarElementos() {
+
+	char elementos[] = "elementos.dat";
+
+	ifstream elementosIn;
+	elementosIn.open(elementos, ios::in | ios::binary);
+
+	NodoArbol* uno;
+	raiz = uno;
+
+	if (!elementosIn) {
+
+		cout << "Error al intentar abrir archivo\n";
+		return;
+	}
+
+	while (!elementosIn.eof()) {
+
+	}
+
+	cargarTotal(raiz, &elementosIn);
+
+	elementosIn.close();
+}
+
+void ArbolBinario::cargarTotal(NodoArbol* x, ifstream* elementosIn) {
+
+	bin agregar;
+	bin hijo1;
+	bin hijo2;
+	(*elementosIn).read(reinterpret_cast<char*>(&agregar), sizeof(bin));
+	(*elementosIn).read(reinterpret_cast<char*>(&hijo1), sizeof(bin));
+	(*elementosIn).read(reinterpret_cast<char*>(&hijo2), sizeof(bin));
+	x = new NodoArbol(agregar);
+	if (hijo1.nombre == "Nulo")
+		x->setHijoDerecho(nullptr);
+	else {
+		NodoArbol* dere;
+		dere = new NodoArbol(hijo1);
+		x->setHijoDerecho(dere);
+		cargarTotal(dere, elementosIn);
+	}
+	
+	if (hijo2.nombre == "Nulo")
+		x->setHijoIzquierdo(nullptr);
+	else {
+		NodoArbol* izq;
+		izq = new NodoArbol(hijo2);
+		x->setHijoIzquierdo(izq);
+		cargarTotal(izq, elementosIn);
+	}
 }

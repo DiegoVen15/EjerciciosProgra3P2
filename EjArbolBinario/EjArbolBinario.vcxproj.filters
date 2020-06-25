@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="NodoArbol.h">
+    <ClInclude Include="ArbolBinario.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ArbolBinario.h">
+    <ClInclude Include="NodoArbol.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -7,6 +7,13 @@ using namespace std;
 NodoArbol::NodoArbol() : nombre(nullptr), hijoIzquierdo(nullptr), hijoDerecho(nullptr)
 {}
 
+NodoArbol::NodoArbol(bin ag)
+{
+	setNombre(ag.nombre);
+	setHijoIzquierdo(ag.hijoIzquierdo);
+	setHijoDerecho(ag.hijoDerecho);
+}
+
 NodoArbol::NodoArbol(const char* _nombre, NodoArbol* _hIzquierdo, NodoArbol* _hDerecho)
 {
 	setNombre(_nombre);

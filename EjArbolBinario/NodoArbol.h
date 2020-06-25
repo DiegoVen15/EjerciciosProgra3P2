@@ -1,6 +1,12 @@
 	#pragma once
 #ifndef NODOARBOL_H
 #define NODOARBOL_H
+struct bin {
+
+	char* nombre;
+	NodoArbol* hijoDerecho;
+	NodoArbol* hijoIzquierdo;
+};
 
 class NodoArbol {
 
@@ -11,6 +17,7 @@ private:
 
 public:
 	NodoArbol();
+	NodoArbol(bin);
 	NodoArbol(const char*, NodoArbol*, NodoArbol*);
 
 	void setNombre(const char*);

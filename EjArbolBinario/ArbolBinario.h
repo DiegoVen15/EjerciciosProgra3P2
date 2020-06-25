@@ -3,6 +3,10 @@
 #define ARBOLBINARIO_H
 
 #include "NodoArbol.h"
+#include <fstream>
+#include<iostream>
+using namespace std;
+
 
 class ArbolBinario
 {
@@ -24,7 +28,10 @@ public:
 	int obtenerAlturaMaxima();
 	int alturaTotal(NodoArbol*);
 	void guardarElementos();
+	void guardarTotal(NodoArbol*, ofstream*);
 	void cargarElementos();
+
+	void cargarTotal(NodoArbol*, ifstream*);
 };
 
 
