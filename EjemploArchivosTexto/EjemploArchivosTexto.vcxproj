@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{D07FF270-73BC-4F3F-8218-426381339082}</ProjectGuid>
-    <RootNamespace>EjArbolBinario</RootNamespace>
+    <ProjectGuid>{7B3836B7-B557-41C2-94E0-0809EEBAD6A5}</ProjectGuid>
+    <RootNamespace>EjemploArchivosTexto</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,13 +138,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ArbolBinario.h" />
-    <ClInclude Include="NodoArbol.h" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Notas.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ArbolBinario.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="NodoArbol.cpp" />
+    <ClInclude Include="Notas.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

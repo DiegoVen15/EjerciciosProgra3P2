@@ -1,4 +1,4 @@
-#pragma once
+	#pragma once
 #ifndef NODOARBOL_H
 #define NODOARBOL_H
 
@@ -11,7 +11,7 @@ private:
 
 public:
 	NodoArbol();
-	NodoArbol(char*, NodoArbol*, NodoArbol*);
+	NodoArbol(const char*, NodoArbol*, NodoArbol*);
 
 	void setNombre(const char*);
 	void setHijoDerecho(NodoArbol*);

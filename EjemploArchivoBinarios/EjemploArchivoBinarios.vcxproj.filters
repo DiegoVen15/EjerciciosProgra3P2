@@ -15,21 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="NodoArbol.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ArbolBinario.h">
+    <ClInclude Include="empleado.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ArbolBinario.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NodoArbol.cpp">
+    <ClCompile Include="empleado.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
