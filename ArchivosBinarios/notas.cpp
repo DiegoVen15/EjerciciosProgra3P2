@@ -7,7 +7,7 @@ using namespace std;
 
 void agregarNotaMateria() {
 
-	ofstream notasOut("notas.dat", ios::out | ios::app | ios::binary);
+	ofstream notasOut("alumnos.dat", ios::out | ios::app | ios::binary);
 
 	if (!notasOut) {
 
@@ -31,7 +31,7 @@ void agregarNotaMateria() {
 
 void listarNotas(int numCuenta) {
 
-	fstream notasInOut("notas.dat", ios::in | ios::out | ios::binary);
+	fstream notasInOut("alumnos.dat", ios::in | ios::out | ios::binary);
 
 	if (!notasInOut) {
 
@@ -57,7 +57,7 @@ void listarNotas(int numCuenta) {
 
 void actualizarPromedio(int numCuenta) {
 
-	fstream notasOut("notas.dat", ios::out | ios::out| ios::binary);
+	fstream notasOut("alumnos.dat", ios::out | ios::out| ios::binary);
 
 	if (!notasOut) {
 
@@ -71,8 +71,14 @@ void actualizarPromedio(int numCuenta) {
 	
 	notasOut.seekg(numCuenta, ios::beg);
 
-	notasOut.write(reinterpret_cast<const char*>(&nuevo), sizeof(notas));
+	notasOut.read(reinterpret_cast<char*>(&nuevo), sizeof(notas));
 
 	a.promedio = nuevo.nota / l.uv;
+
+	notasOut.seekp(numCuenta, ios::beg);
+
+	notasOut.write(reinterpret_cast<char*>(&nuevo), sizeof(notas));
+
+	cout << "Promedio actualizado\n";
 	notasOut.close();
 }

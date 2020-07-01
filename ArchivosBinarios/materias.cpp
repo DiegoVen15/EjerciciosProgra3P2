@@ -28,7 +28,7 @@ void agregarNuevasMaterias() {
 	materiasOut.close();
 }
 
-void listarAlumnos() {
+void listarMaterias() {
 
 	ifstream materiasIn("alumnos.dat", ios::in | ios::binary);
 
